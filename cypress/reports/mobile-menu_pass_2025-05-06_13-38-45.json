@@ -1,0 +1,284 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-06T16:38:32.438Z",
+    "end": "2025-05-06T16:38:45.088Z",
+    "duration": 12650,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "adea7f1b-c9fe-405c-aec2-5d71c90d9199",
+      "title": "",
+      "fullFile": "__tests__\\e2e\\mobile-menu.cy.ts",
+      "file": "__tests__\\e2e\\mobile-menu.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4d845ac9-e523-4cfa-9944-461ec705db5d",
+          "title": "Responsive Navbar (Mobile)",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a102f54c-3ac8-4afc-a2b3-d2a11b892f88",
+              "title": "Mobile Menu Responsiveness",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should show hamburger menu on mobile and hide on desktop",
+                  "fullTitle": "Responsive Navbar (Mobile) Mobile Menu Responsiveness should show hamburger menu on mobile and hide on desktop",
+                  "timedOut": null,
+                  "duration": 1817,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.viewport('iphone-6');\ncy.get(SELECTORS.TOGGLE_MENU).should('be.visible');\ncy.get(SELECTORS.MOBILE_MENU).should('not.be.visible');\ncy.viewport(1024, 768);\ncy.get(SELECTORS.TOGGLE_MENU).should('not.be.visible');\ncy.get(SELECTORS.MOBILE_MENU).should('be.visible');",
+                  "err": {},
+                  "uuid": "800733c0-f172-4fb9-aaaa-a48100f964d5",
+                  "parentUUID": "a102f54c-3ac8-4afc-a2b3-d2a11b892f88",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should have smooth animations when opening menu",
+                  "fullTitle": "Responsive Navbar (Mobile) Mobile Menu Responsiveness should have smooth animations when opening menu",
+                  "timedOut": null,
+                  "duration": 1731,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU)\n    .should('be.visible')\n    .and('have.class', 'translate-y-0')\n    .and('have.class', 'opacity-100');\ncy.get(SELECTORS.MOBILE_MENU).find('a').should('have.length', 3);\ncy.get(SELECTORS.MOBILE_MENU).contains(SELECTORS.NAV_LINKS.DASHBOARD).should('be.visible');\ncy.get(SELECTORS.MOBILE_MENU).contains(SELECTORS.NAV_LINKS.TEAM).should('be.visible');\ncy.get(SELECTORS.MOBILE_MENU).contains(SELECTORS.NAV_LINKS.LEAGUE).should('be.visible');",
+                  "err": {},
+                  "uuid": "c7a76e0b-0db9-4dc6-8833-80977e8ae502",
+                  "parentUUID": "a102f54c-3ac8-4afc-a2b3-d2a11b892f88",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should have smooth animations when closing menu",
+                  "fullTitle": "Responsive Navbar (Mobile) Mobile Menu Responsiveness should have smooth animations when closing menu",
+                  "timedOut": null,
+                  "duration": 1682,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU).should('be.visible');\ncy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU).should('not.be.visible');",
+                  "err": {},
+                  "uuid": "4e5ec7ef-ee4b-4abc-8441-dd21b8ae9c0b",
+                  "parentUUID": "a102f54c-3ac8-4afc-a2b3-d2a11b892f88",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "800733c0-f172-4fb9-aaaa-a48100f964d5",
+                "c7a76e0b-0db9-4dc6-8833-80977e8ae502",
+                "4e5ec7ef-ee4b-4abc-8441-dd21b8ae9c0b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5230,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "eebe5102-56da-44c3-a24a-4e856d72aad5",
+              "title": "Menu Navigation",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should navigate through all menu items",
+                  "fullTitle": "Responsive Navbar (Mobile) Menu Navigation should navigate through all menu items",
+                  "timedOut": null,
+                  "duration": 2138,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU).should('be.visible');\ncy.get(SELECTORS.MOBILE_MENU).contains(SELECTORS.NAV_LINKS.DASHBOARD).click();\ncy.url().should('include', '/dashboard');\ncy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU).contains(SELECTORS.NAV_LINKS.TEAM).click();\ncy.url().should('include', '/team');\ncy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU).contains(SELECTORS.NAV_LINKS.LEAGUE).click();\ncy.url().should('include', '/league');",
+                  "err": {},
+                  "uuid": "2a276525-c34c-4c92-8934-736fdca43e98",
+                  "parentUUID": "eebe5102-56da-44c3-a24a-4e856d72aad5",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should close menu after navigation",
+                  "fullTitle": "Responsive Navbar (Mobile) Menu Navigation should close menu after navigation",
+                  "timedOut": null,
+                  "duration": 1694,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU).contains(SELECTORS.NAV_LINKS.DASHBOARD).click();\ncy.get(SELECTORS.MOBILE_MENU).should('not.be.visible');",
+                  "err": {},
+                  "uuid": "c4b8816e-99b7-478a-bdbc-ac752c75145e",
+                  "parentUUID": "eebe5102-56da-44c3-a24a-4e856d72aad5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "2a276525-c34c-4c92-8934-736fdca43e98",
+                "c4b8816e-99b7-478a-bdbc-ac752c75145e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3832,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "ad6bccee-3424-4343-abf2-9119719a6dae",
+              "title": "Menu Interaction",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should close menu when clicking outside",
+                  "fullTitle": "Responsive Navbar (Mobile) Menu Interaction should close menu when clicking outside",
+                  "timedOut": null,
+                  "duration": 1705,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU).should('be.visible');\ncy.get('body').click(0, 0);\ncy.get(SELECTORS.MOBILE_MENU).should('not.be.visible');",
+                  "err": {},
+                  "uuid": "f1486576-950a-44c8-98c5-f2fb56caf326",
+                  "parentUUID": "ad6bccee-3424-4343-abf2-9119719a6dae",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should close menu when pressing escape key",
+                  "fullTitle": "Responsive Navbar (Mobile) Menu Interaction should close menu when pressing escape key",
+                  "timedOut": null,
+                  "duration": 1662,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get(SELECTORS.TOGGLE_MENU).click();\ncy.get(SELECTORS.MOBILE_MENU).should('be.visible');\ncy.get('body').type('{esc}');\ncy.get(SELECTORS.MOBILE_MENU).should('not.be.visible');",
+                  "err": {},
+                  "uuid": "918cdce4-5797-4da5-a365-fd3f542e48f5",
+                  "parentUUID": "ad6bccee-3424-4343-abf2-9119719a6dae",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f1486576-950a-44c8-98c5-f2fb56caf326",
+                "918cdce4-5797-4da5-a365-fd3f542e48f5"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3367,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]_[status]_[datetime]",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "Fantasy Game Test Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "reportFilename": "[name]_[status]_[datetime]",
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
