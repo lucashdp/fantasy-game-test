@@ -1,15 +1,13 @@
 import '@testing-library/jest-dom'
 import { cleanup } from '@testing-library/react'
 
-// Limpa o ambiente após cada teste
 afterEach(() => {
   cleanup()
 })
 
-// Configurações globais do Jest
-jest.setTimeout(10000) // 10 segundos de timeout para testes
 
-// Mock de componentes comuns
+jest.setTimeout(10000)
+
 jest.mock('next/navigation', () => ({
   redirect: jest.fn(),
   useRouter: () => ({
@@ -19,7 +17,6 @@ jest.mock('next/navigation', () => ({
   })
 }))
 
-// Mock do contexto do time
 jest.mock('../context/TeamContext', () => ({
   useTeam: () => ({
     roster: [],
