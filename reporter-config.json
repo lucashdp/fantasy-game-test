@@ -1,0 +1,10 @@
+{
+  "reporterEnabled": "spec, mochawesome",
+  "mochawesomeReporterOptions": {
+    "reportDir": "cypress/reports/combined",
+    "overwrite": false,
+    "html": true,
+    "json": true,
+    "reportFilename": "relatorio_geral_todos_testes"
+  }
+}
