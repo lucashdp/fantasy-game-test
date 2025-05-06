@@ -1,0 +1,149 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-06T16:20:41.063Z",
+    "end": "2025-05-06T16:20:54.515Z",
+    "duration": 13452,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0ac7a99f-9563-48e0-af2b-de74ea718e46",
+      "title": "",
+      "fullFile": "__tests__\\e2e\\player-purchase.cy.ts",
+      "file": "__tests__\\e2e\\player-purchase.cy.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "daa11b39-a30a-49d4-a348-8b533521def8",
+          "title": "Player Purchase and List Management",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should successfully purchase a player and reflect changes in budget and lists",
+              "fullTitle": "Player Purchase and List Management should successfully purchase a player and reflect changes in budget and lists",
+              "timedOut": null,
+              "duration": 3011,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "getBudget().as('initialBudget');\ngetPlayerInfo();\ncy.get('@buyButton')\n    .trigger('mouseover')\n    .click();\ncy.wait(500);\ngetBudget().then((newBudget) => {\n    cy.get('@initialBudget').then((initialBudget) => {\n        expect(Number(newBudget)).to.be.lessThan(Number(initialBudget));\n    });\n});\ncy.get('@playerName').then((playerName) => {\n    const playerNameText = String(playerName).trim();\n    verifyPlayerNotInList(playerNameText);\n    verifyPlayerInTeam(playerNameText);\n});",
+              "err": {},
+              "uuid": "93799f8c-5ab5-4954-b6c6-0f5638c20d2b",
+              "parentUUID": "daa11b39-a30a-49d4-a348-8b533521def8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should disable buttons when budget runs out",
+              "fullTitle": "Player Purchase and List Management should disable buttons when budget runs out",
+              "timedOut": null,
+              "duration": 4261,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "getBudget().as('initialBudget');\nbuyUntilNoLongerPossible();\ncy.get('[data-testid=\"available-players\"] button:contains(\"Comprar\")').each(($button) => {\n    cy.wrap($button)\n        .should('be.disabled')\n        .and('have.class', 'cursor-not-allowed');\n});\ngetBudget().then((finalBudget) => {\n    cy.get('@initialBudget').then((initialBudget) => {\n        expect(Number(finalBudget)).to.be.lessThan(Number(initialBudget));\n    });\n});",
+              "err": {},
+              "uuid": "58407799-7626-45e4-825c-60590ea49df0",
+              "parentUUID": "daa11b39-a30a-49d4-a348-8b533521def8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should allow removing a player and restore budget",
+              "fullTitle": "Player Purchase and List Management should allow removing a player and restore budget",
+              "timedOut": null,
+              "duration": 5918,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "getBudget().as('initialBudget');\ngetPlayerInfo();\ncy.get('@buyButton').click();\ncy.wait(500);\ncy.contains('Meu Time').click();\ncy.wait(500);\ncy.get('[data-testid=\"my-team-player\"]').first().find('button').click();\ncy.wait(1000);\ncy.get('@initialBudget').then((initialBudget) => {\n    cy.get('[data-testid=\"budget-amount\"]').should('contain', `R$${initialBudget}`);\n});\ncy.contains('Jogadores').click();\ncy.url().should('include', '/team');\ncy.wait(500);\ncy.visit('/dashboard');\ncy.get('[data-testid=\"available-players\"]', { timeout: 10000 }).should('be.visible');\ncy.get('@playerName').then((playerName) => {\n    const playerNameText = String(playerName).trim();\n    cy.get('[data-testid=\"available-players\"]').find('p.font-medium').each(($el) => {\n        cy.wrap($el).invoke('text').then((text) => {\n            if (text.includes(playerNameText)) {\n                cy.wrap($el).should('exist');\n            }\n        });\n    });\n});",
+              "err": {},
+              "uuid": "f58e6e0d-e75c-42d7-a3d7-18ccb3d7c56a",
+              "parentUUID": "daa11b39-a30a-49d4-a348-8b533521def8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "93799f8c-5ab5-4954-b6c6-0f5638c20d2b",
+            "58407799-7626-45e4-825c-60590ea49df0",
+            "f58e6e0d-e75c-42d7-a3d7-18ccb3d7c56a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 13190,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]_[status]_[datetime]",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportPageTitle": "Fantasy Game Test Report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "reportFilename": "[name]_[status]_[datetime]",
+        "timestamp": "yyyy-mm-dd_HH-MM-ss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
