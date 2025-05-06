@@ -171,12 +171,13 @@ npm run cypress:report:combined    # Relatório geral
 
 ### Relatório Jest
 
-![Relatório Jest](./docs/relatorio-jest.png)
-![Jest](./docs/jest-test.png)
+![ Jest](https://raw.githubusercontent.com/lucashdp/fantasy-game-test/a8e1e9c9cff483ae363b5df9952370b9ed478c19/docs/jest-test.png)
+![Relatório Jest](https://raw.githubusercontent.com/lucashdp/fantasy-game-test/a8e1e9c9cff483ae363b5df9952370b9ed478c19/docs/relatorio-jest.png)
 
 ### Relatório Cypress
 
-![Relatório Cypress](./docs/relatorio-cypress.png)
+![Relatório Cypress](https://raw.githubusercontent.com/lucashdp/fantasy-game-test/a8e1e9c9cff483ae363b5df9952370b9ed478c19/docs/relatorio-cypress.png)
+
 
 ## 📄 Licença
 
